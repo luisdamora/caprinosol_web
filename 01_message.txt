@@ -1,0 +1,4 @@
+feat(config): agregar configuración de sitio y base
+
+- Configurar el sitio en `astro.config.ts` para apuntar a la URL del proyecto.
+- Establecer la base para la implementación en GitHub Pages.

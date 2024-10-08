@@ -23,6 +23,8 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
+  site: 'https://luisdamora.github.io',
+  base: '/caprinosol_web',
 
   integrations: [
     tailwind({

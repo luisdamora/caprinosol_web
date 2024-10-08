@@ -1,0 +1,169 @@
+
+system:
+I want you to act as a commit message generator.
+
+[START PROMPT]
+Avoid overly verbose descriptions or unnecessary details.
+Start with a short sentence in imperative form, no more than 50 characters long.
+Then leave an empty line and continue with a more detailed explanation.
+Write only one sentence for the first part, and two or three sentences at most for the detailed explanation.
+
+* Answer in Spanish
+* Use bullet points for multiple changes
+* Use Conventional Commit format
+* Respond directly, without adding introductions or conclusions.
+* texto plano, solo usa guiones '-' para la lista de cambios
+[END PROMPT]
+
+[START GIT DIFF]
+ astro.config.ts | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git astro.config.ts astro.config.ts
+index 462563a..ce6438f 100644
+--- astro.config.ts
++++ astro.config.ts
+@@ -23,68 +23,70 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
+ 
+~
+ export default defineConfig({
+~
+   output: 'static',
+~
+   
++site: 'https://luisdamora.github.io',
+~
++  base: '/caprinosol_web',
+~
+ 
+~
+   integrations: [
+~
+     tailwind({
+~
+       applyBaseStyles: false,
+~
+     }),
+~
+     sitemap(),
+~
+     mdx(),
+~
+     icon({
+~
+       include: {
+~
+         tabler: ['*'],
+~
+         'flat-color-icons': [
+~
+           'template',
+~
+           'gallery',
+~
+           'approval',
+~
+           'document',
+~
+           'advertising',
+~
+           'currency-exchange',
+~
+           'voice-presentation',
+~
+           'business-contact',
+~
+           'database',
+~
+         ],
+~
+       },
+~
+     }),
+~
+ 
+~
+     ...whenExternalScripts(() =>
+~
+       partytown({
+~
+         config: { forward: ['dataLayer.push'] },
+~
+       })
+~
+     ),
+~
+ 
+~
+     compress({
+~
+       CSS: true,
+~
+       HTML: {
+~
+         'html-minifier-terser': {
+~
+           removeAttributeQuotes: false,
+~
+         },
+~
+       },
+~
+       Image: false,
+~
+       JavaScript: true,
+~
+       SVG: false,
+~
+       Logger: 1,
+~
+     }),
+~
+ 
+~
+     astrowind({
+~
+       config: './src/config.yaml',
+~
+     }),
+~
+   ],
+~
+ 
+~
+   image: {
+~
+     domains: ['cdn.pixabay.com'],
+~
+   },
+~
+ 
+~
+   markdown: {
+~
+     remarkPlugins: [readingTimeRemarkPlugin],
+~
+     rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
+~
+   },
+~
+ 
+~
+   vite: {
+~
+     resolve: {
+~
+       alias: {
+~
+         '~': path.resolve(__dirname, './src'),
+~
+       },
+~
+     },
+~
+   },
+~
+ });
+~
+
+[END GIT DIFF]
